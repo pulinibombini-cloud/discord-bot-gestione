@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: discord-bot
+    runtime: node
+    plan: free
+    region: frankfurt
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: DISCORD_BOT_TOKEN
+        sync: false
+      - key: MOD_ROLE_ID
+        sync: false
+      - key: AUTOROLE_IDS
+        sync: false
